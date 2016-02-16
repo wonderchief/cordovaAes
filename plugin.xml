@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cc.legle.cordovaQiniu" version="1.0.0">
+	<name>cordovaAes</name>
+	<description>cordovaAes插件</description>
+	<license>Apache 2.0</license>
+	<keywords>cordovaAes,aes,upload</keywords>
+	<js-module src="www/cordovaAes.js" name="cordovaAes">
+		<clobbers target="cordovaAes"/>
+	</js-module>
+	<!--Android-->
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<!--配置功能-->
+			<feature name="legleaes">
+				<param name="android-package" value="cc.legle.plugin.aesplugin" />
+			</feature>
+		</config-file>
+		<!--配置源码-->
+		<source-file src="src/android/java/AES.java" target-dir="src/cc/legle/plugin/aesplugin/"/>
+        <source-file src="src/android/java/LegleAES.java" target-dir="src/cc/legle/plugin/aesplugin/"/>
+	</platform>
+    <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="legleaes">
+        <param name="ios-package" value="AES" />
+      </feature>
+    </config-file>
+    <framework src="SystemConfiguration.framework" custom="false" />
+    <framework src="Security.framework" custom="false" />
+
+    <header-file src="src/ios/Qiniu.h" />
+    <source-file src="src/ios/Qiniu.m" />
+
+
+    </platform>
+</plugin>
+
+
+

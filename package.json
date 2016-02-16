@@ -1,0 +1,30 @@
+{
+  "name": "cordovaAes",
+  "version": "0.1.0",
+  "description": "cordovaAes插件",
+  "cordova": {
+    "id": "cc.legle.cordovaAes",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wonderchief/cordovaAes.git"
+  },
+  "keywords": [
+    "cordova",
+    "aes",
+    "crypto",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "wonderchief",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wonderchief/cordova-aes-qiniu/issues"
+  },
+  "homepage": "https://github.com/wonderchief/cordova-plugin-aes#readme"
+}
