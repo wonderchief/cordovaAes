@@ -3,10 +3,10 @@ cordova.define("cordova/plugins/cordovaAes",
     var exec = require("cordova/exec");
     var cordovaAes = function() {};
 	cordovaAes.prototype.encrypto = function(key,text,successCallback, errorCallback) {
-        exec(successCallback, errorCallback, 'legleaes', 'encrypto', key, text);
+        exec(successCallback, errorCallback, 'legleaes', 'encrypto', [key, text]);
     };
     cordovaAes.prototype.decrypto = function(key,text,successCallback, errorCallback) {
-        exec(successCallback, errorCallback, 'legleaes', 'decrypto', key, text);
+        exec(successCallback, errorCallback, 'legleaes', 'decrypto', [key, text]);
     };
     var cordovaAes = new cordovaAes();
     module.exports = cordovaAes;

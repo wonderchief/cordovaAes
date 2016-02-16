@@ -1,9 +1,6 @@
 package cc.legle.plugin.aesplugin;
 
-import java.io.File;
-import java.lang.reflect.InvocationTargetException;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Method;
+import android.util.Log;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -12,10 +9,6 @@ import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.net.URLDecoder;
-
-import android.util.Log;
 
 public class LegleAES extends CordovaPlugin {
 	
@@ -34,24 +27,40 @@ public class LegleAES extends CordovaPlugin {
 
 	}
 
+
 	@Override
-	public boolean execute(String action, String key,String txt,CallbackContext callbackContext) throws JSONException {
+	public boolean execute(String action, JSONArray args,CallbackContext callbackContext) throws JSONException {
 		this.callbackContext = callbackContext;
+		String key=args.getString(0);
+		String txt=args.getString(1);
+		Log.d("=======",action);
+		Log.d("=======",key);
+		Log.d("=======",txt);
 		try {
-			if(action.equal('encrypto')){
-				callbackContext.success(AES.encrypt(txt,key));
+			if(action.equals("encrypto")){
+				try {
+					String s = AES.encrypt(txt, key);
+					Log.d("=======",s);
+					callbackContext.success(s);
+				}catch (Exception ex){
+					Log.e("=======",ex.getStackTrace().toString());
+					callbackContext.error(ex.getMessage());
+				}
+
 			}
-			else if(action.equal('decrypto'))
+			else if(action.equals("decrypto"))
 			{
-				callbackContext.success(AES.decrypt(txt,key));
+				try {
+					String s = AES.decrypt(txt, key);
+					Log.d("=======",s);
+					callbackContext.success(s);
+				}catch(Exception ex)
+				{
+					Log.e("=======",ex.getStackTrace().toString());
+					callbackContext.error(ex.getMessage());
+				}
 			}
-		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
+		}catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
 		return false;

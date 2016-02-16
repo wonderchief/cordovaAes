@@ -12,7 +12,7 @@
 		<config-file target="res/xml/config.xml" parent="/*">
 			<!--配置功能-->
 			<feature name="legleaes">
-				<param name="android-package" value="cc.legle.plugin.aesplugin" />
+				<param name="android-package" value="cc.legle.plugin.aesplugin.LegleAES" />
 			</feature>
 		</config-file>
 		<!--配置源码-->
