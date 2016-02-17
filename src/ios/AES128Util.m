@@ -118,7 +118,8 @@
                                           &numBytesCrypted);
     if (cryptStatus == kCCSuccess) {
         NSData *resultData = [NSData dataWithBytesNoCopy:buffer length:numBytesCrypted];
-        return [[[NSString alloc] initWithData:resultData encoding:NSUTF8StringEncoding] autorelease];
+        //return [[[NSString alloc] initWithData:resultData encoding:NSUTF8StringEncoding] autorelease];
+        return [[NSString alloc] initWithData:resultData encoding:NSUTF8StringEncoding];
     }
     free(buffer);
     return nil;

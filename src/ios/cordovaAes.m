@@ -22,8 +22,8 @@
     NSString* text = [command.arguments objectAtIndex:1];
     self.callbackId = command.callbackId;
     NSLog(@"token:%@",self.callbackId);
-    NSString ret = [AES128Util AES128Encrypt:text key:key];
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:ret];
+    NSString *ret = [AES128Util AES128Encrypt:text key:key];
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:ret];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackId];
     
 }
@@ -32,10 +32,10 @@
     
     NSString* key = [command.arguments objectAtIndex:0];
     NSString* text = [command.arguments objectAtIndex:1];
-    NSString ret = [AES128Util AES128Decrypt:text key:key];
+    NSString *ret = [AES128Util AES128Decrypt:text key:key];
     self.callbackId = command.callbackId;
     NSLog(@"token:%@",self.callbackId);
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:ret];
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:ret];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackId];
     
 }
