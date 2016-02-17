@@ -22,16 +22,13 @@
     <platform name="ios">
     <config-file parent="/*" target="config.xml">
       <feature name="legleaes">
-        <param name="ios-package" value="AES" />
+        <param name="ios-package" value="cordovaAes" />
       </feature>
     </config-file>
-    <framework src="SystemConfiguration.framework" custom="false" />
-    <framework src="Security.framework" custom="false" />
-
-    <header-file src="src/ios/Qiniu.h" />
-    <source-file src="src/ios/Qiniu.m" />
-
-
+    <header-file src="src/ios/cordovaAes.h" />
+    <source-file src="src/ios/cordovaAes.m" />
+    <header-file src="src/ios/AES128Util.h" />
+    <source-file src="src/ios/AES128Util.m" />
     </platform>
 </plugin>
 
